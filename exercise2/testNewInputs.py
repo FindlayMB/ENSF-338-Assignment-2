@@ -52,14 +52,20 @@ def insertion_sort(array, start, end):
 
 with open("ex2.json", "r") as file:
     inputs = json.load(file)
-
+with open("ex2.5.json","r") as file:
+    newInputs = json.load(file)
 timing_results = []
+timing_results_new = []
 lengths = []
 for arr in inputs:
     lengths.append(len(arr))
     timing_results.append(timeit(lambda:func1(arr, 0, len(arr) - 1),number=1))
 
-plt.plot(lengths,timing_results,label="Optimised Version")
+for arr in newInputs:
+    timing_results_new.append(timeit(lambda:func1(arr, 0, len(arr) - 1),number=1))
+
+plt.plot(lengths,timing_results,label="Old data")
+plt.plot(lengths,timing_results_new,label="New data")
 plt.legend()
 plt.xticks(lengths)
 plt.xlabel("Number of items in input")
