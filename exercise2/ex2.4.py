@@ -2,6 +2,8 @@ import sys
 from timeit import timeit
 import matplotlib.pyplot as plt
 import json
+
+
 sys.setrecursionlimit(20000)
 
 def func1(arr, low, high):
@@ -17,6 +19,7 @@ def func2(array, start, end):
     median = median_of_three(array, start, end)
     pivot = array[median]
     array[median], array[start] = array[start], array[median]
+    
     low = start + 1
     high = end
     while True:
@@ -59,6 +62,7 @@ for arr in inputs:
     lengths.append(len(arr))
     timing_results.append(timeit(lambda:func1(arr, 0, len(arr) - 1),number=1))
 
+'''
 plt.plot(lengths,timing_results,label="Optimised Version")
 plt.legend()
 plt.xticks(lengths)
@@ -66,3 +70,4 @@ plt.xlabel("Number of items in input")
 plt.ylabel("Time (seconds)")
 plt.title("QuickSort Timing Results")
 plt.show()
+'''

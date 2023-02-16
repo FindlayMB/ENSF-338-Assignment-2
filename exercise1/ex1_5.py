@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 def optimized_fibonacci(num, memory = {0:0, 1:1}):
     if num not in memory:
-        memory[num] =optimized_fibonacci(num-1, memory) + optimized_fibonacci(num-2, memory)
+        memory[num] = optimized_fibonacci(num-1, memory) + optimized_fibonacci(num-2, memory)
     return memory[num]
 
 def original_fibonacci(num):
